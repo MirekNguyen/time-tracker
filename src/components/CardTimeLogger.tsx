@@ -34,7 +34,7 @@ export const CardTimeLogger = () => {
             type="number"
             placeholder="Hours"
             value={hours}
-            pattern="[0-9]+(\.[0-9]{1,2})?"
+            inputMode="decimal"
             defaultValue={0}
             min={0.25}
             step={0.25}
