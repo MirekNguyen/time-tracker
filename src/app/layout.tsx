@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Viewport } from 'next'
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -15,8 +16,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Time tracker",
   description: "App to track time",
-  viewport: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
 };
+
+export const viewport: Viewport = {
+  width: "device-width, shrink-to-fit=no",
+  initialScale: 1,
+  minimumScale: 1,
+  viewportFit: "cover",
+}
 
 export default function RootLayout({
   children,
