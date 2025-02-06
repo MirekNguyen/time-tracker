@@ -1,0 +1,17 @@
+volumes:
+  time-tracker-data:
+    name: time-tracker-data
+
+services:
+  database:
+    image: postgres:17.2-alpine
+    container_name: time-tracker-db
+    environment:
+      - POSTGRES_USER=${DB_USER:-time-tracker}
+      - POSTGRES_DB=${DB_NAME:-time-tracker}
+      - POSTGRES_PASSWORD=${DB_PASS:-time-tracker}
+    ports:
+      - ${DB_PORT:-5432}:5432
+    volumes:
+      - time-tracker-data:/var/lib/postgresql/data
+    restart: unless-stopped
