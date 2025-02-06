@@ -1,4 +1,4 @@
-"use client";
+"use server";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -10,24 +10,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { deleteEntry } from "./insertHours";
+import { getTimeEntries } from "../actions/actions";
+import { DeleteTimeEntry } from "./DeleteTimeEntry";
 
-type TimeEntry = {
-  id: number;
-  date: Date;
-  hours: number;
-};
+export async function TimeEntriesTable() {
+  const timeEntries = await getTimeEntries();
 
-type TimeEntriesTableProps = {
-  timeEntries: TimeEntry[];
-};
-
-export function TimeEntriesTable({ timeEntries }: TimeEntriesTableProps) {
   const totalHours = timeEntries.reduce((sum, entry) => sum + entry.hours, 0);
 
-  const deleteTimeEntry = async (id: number) => {
-     await deleteEntry(id);
-  }
   return (
     <Table>
       <TableCaption>A record of time entries.</TableCaption>
@@ -43,7 +33,7 @@ export function TimeEntriesTable({ timeEntries }: TimeEntriesTableProps) {
           <TableRow key={entry.id}>
             <TableCell className="font-medium">{entry.date.toDateString()}</TableCell>
             <TableCell className="text-right">{entry.hours}</TableCell>
-            <TableCell className="text-right"><Button variant="destructive" onClick={() => deleteTimeEntry(entry.id)}>Delete</Button></TableCell>
+            <TableCell className="text-right"><DeleteTimeEntry id={entry.id} /></TableCell>
           </TableRow>
         ))}
       </TableBody>
