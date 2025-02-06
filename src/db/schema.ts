@@ -9,6 +9,13 @@ export const usersTable = pgTable("users", {
 
 export const timeEntriesTable = pgTable("time_entries", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  date: date().notNull(),
+  date: timestamp().notNull(),
   hours: integer().notNull(),
 });
+
+export const schema = {
+  usersTable,
+  timeEntriesTable,
+}
+
+export type TimeEntry = typeof timeEntriesTable.$inferSelect;

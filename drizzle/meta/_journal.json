@@ -15,6 +15,13 @@
       "when": 1738863135096,
       "tag": "0001_acoustic_salo",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1738863447558,
+      "tag": "0002_tricky_wiccan",
+      "breakpoints": true
     }
   ]
 }
