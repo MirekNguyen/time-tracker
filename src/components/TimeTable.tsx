@@ -40,6 +40,7 @@ export async function TimeEntriesTable() {
         <TableRow>
           <TableCell>Total</TableCell>
           <TableCell className="text-right">{totalHours}</TableCell>
+          <TableCell></TableCell>
         </TableRow>
       </TableFooter>
     </Table>
