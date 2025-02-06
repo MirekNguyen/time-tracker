@@ -14,7 +14,7 @@ import { Label } from "./ui/label";
 
 export const CardTimeLogger = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
-  const [hours, setHours] = useState<number>(0);
+  const [hours, setHours] = useState<string>('0');
   return (
     <Card className="md:w-80 md:m-2 w-full">
       <CardHeader>
@@ -36,7 +36,7 @@ export const CardTimeLogger = () => {
             value={hours}
             min={0.25}
             step={0.25}
-            onChange={(e) => setHours(e.target.valueAsNumber)}
+            onChange={(e) => setHours(e.target.value)}
           />
         </div>
       </CardContent>

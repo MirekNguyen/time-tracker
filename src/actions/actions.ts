@@ -5,7 +5,7 @@ import { timeEntriesTable, TimeEntry } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
-export const submit = async (date: Date | undefined, hours: number) => {
+export const submit = async (date: Date | undefined, hours: string) => {
   if (!date) return;
   await db.insert(timeEntriesTable).values({ date, hours }).execute();
   revalidatePath('/');

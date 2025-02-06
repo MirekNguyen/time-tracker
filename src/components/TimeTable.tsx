@@ -15,7 +15,7 @@ import { DeleteTimeEntry } from "./DeleteTimeEntry";
 export async function TimeEntriesTable() {
   const timeEntries = await getTimeEntries();
 
-  const totalHours = timeEntries.reduce((sum, entry) => sum + entry.hours, 0);
+  const totalHours = timeEntries.reduce((sum, entry) => sum + Number(entry.hours), 0);
 
   return (
     <Table>
