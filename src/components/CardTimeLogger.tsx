@@ -16,7 +16,7 @@ export const CardTimeLogger = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [hours, setHours] = useState<number>(0);
   return (
-    <Card className="md:w-80 m-2 w-full">
+    <Card className="md:w-80 md:m-2 w-full">
       <CardHeader>
         <h1>Time tracker</h1>
       </CardHeader>

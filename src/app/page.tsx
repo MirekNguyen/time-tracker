@@ -10,7 +10,7 @@ export default function Home() {
       <Navbar />
       <div className="flex flex-col md:flex-row">
         <CardTimeLogger />
-        <Card className="w-full m-2">
+        <Card className="w-full md:m-2">
           <CardHeader>
             <h1>Time logged</h1>
           </CardHeader>
