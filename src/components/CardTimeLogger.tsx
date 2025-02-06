@@ -34,8 +34,6 @@ export const CardTimeLogger = () => {
             type="number"
             placeholder="Hours"
             value={hours}
-            inputMode="decimal"
-            defaultValue={0}
             min={0.25}
             step={0.25}
             onChange={(e) => setHours(e.target.valueAsNumber)}
