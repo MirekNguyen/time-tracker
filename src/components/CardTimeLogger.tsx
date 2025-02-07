@@ -9,8 +9,8 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
-import { submit } from "../actions/actions";
 import { Label } from "./ui/label";
+import { createTimeEntry } from "@/actions/actions";
 
 export const CardTimeLogger = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -41,7 +41,7 @@ export const CardTimeLogger = () => {
         </div>
       </CardContent>
       <CardFooter>
-        <Button onClick={() => submit(date, hours)} className="w-full">
+        <Button onClick={() => createTimeEntry(date, hours)} className="w-full">
           Save
         </Button>
       </CardFooter>

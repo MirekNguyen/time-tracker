@@ -9,11 +9,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getTimeEntries } from "../actions/actions";
 import { DeleteTimeEntry } from "./DeleteTimeEntry";
+import { fetchTimeEntries } from "@/actions/actions";
 
-export async function TimeEntriesTable() {
-  const timeEntries = await getTimeEntries();
+export async function TimeEntriesList() {
+  const timeEntries = await fetchTimeEntries();
 
   const totalHours = timeEntries.reduce((sum, entry) => sum + Number(entry.hours), 0);
 
@@ -46,4 +46,3 @@ export async function TimeEntriesTable() {
     </Table>
   );
 }
-
