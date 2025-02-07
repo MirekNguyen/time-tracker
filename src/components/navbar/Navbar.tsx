@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import { Button } from "./ui/button";
 import Image from "next/image";
 import { ModeToggle } from "./ModeToggle";
 import { usePathname } from "next/navigation";
+import { Button } from "../ui/button";
 
 export const Navbar = () => {
   const pathname = usePathname();
