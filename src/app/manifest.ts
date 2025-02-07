@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'App to track time',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
+    background_color: '#006A4E',
     theme_color: '#000000',
     icons: [
       {
