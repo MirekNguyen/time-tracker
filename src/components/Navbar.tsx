@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import Image from 'next/image'
+import { ModeToggle } from "./ModeToggle";
 
 export const Navbar = () => {
   return (
@@ -18,6 +19,7 @@ export const Navbar = () => {
               <Link href="/">Dashboard</Link>
             </Button>
           </div>
+          <ModeToggle />
         </div>
       </div>
     </nav>
