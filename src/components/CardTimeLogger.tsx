@@ -14,7 +14,7 @@ import { createTimeEntry } from "@/actions/actions";
 
 export const CardTimeLogger = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
-  const [hours, setHours] = useState<string>('0');
+  const [hours, setHours] = useState<string>("0");
   return (
     <Card className="md:w-80 md:m-2 w-full">
       <CardHeader>
@@ -23,9 +23,17 @@ export const CardTimeLogger = () => {
       <CardContent className="flex flex-col gap-2">
         <Calendar
           mode="single"
-          className="rounded-md border"
+          className="rounded-md border h-full w-full flex"
           selected={date}
           onSelect={setDate}
+          classNames={{
+            months:
+              "flex w-full flex-col sm:flex-row flex-1",
+            month: "w-full flex flex-col",
+            table: "w-full h-full border-collapse",
+            head_row: "",
+            row: "w-full",
+          }}
         />
         <div>
           <Label htmlFor="hours">Hours</Label>

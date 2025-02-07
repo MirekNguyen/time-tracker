@@ -9,6 +9,8 @@ import {
   SignedIn,
   SignedOut,
 } from "@clerk/nextjs";
+import { Navbar } from "@/components/navbar/Navbar";
+import { CurrentUser } from "@/components/navbar/CurrentUser";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +55,9 @@ export default function RootLayout({
               <RedirectToSignIn />
             </SignedOut>
             <SignedIn>
+              <Navbar>
+                <CurrentUser />
+              </Navbar>
               {children}
             </SignedIn>
           </ThemeProvider>

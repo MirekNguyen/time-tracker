@@ -34,6 +34,9 @@ export const Navbar = ({ children }: PropsWithChildren) => {
             <Button variant={pathname === "/" ? "secondary" : "ghost"}>
               <Link href="/">Dashboard</Link>
             </Button>
+            <Button variant={pathname === "/overview" ? "secondary" : "ghost"}>
+              <Link href="/overview">Overview</Link>
+            </Button>
           </div>
         </div>
 
@@ -53,19 +56,29 @@ export const Navbar = ({ children }: PropsWithChildren) => {
               </SheetTrigger>
               <SheetContent side="left" className="md:hidden">
                 <SheetClose asChild>
-                  <div>
-                    {children}
-                    <Link href="/">Dashboard</Link>
+                  <div className="flex flex-col justify-between h-full">
+                    <div className="flex flex-col gap-4">
+                      {children}
+                      <Link href="/">Dashboard</Link>
+                      <Link href="/overview">Overview</Link>
+                    </div>
+                    <SignOutButton>
+                      <Button variant="secondary">
+                        Sign out <LogOut />
+                      </Button>
+                    </SignOutButton>
                   </div>
                 </SheetClose>
               </SheetContent>
             </Sheet>
           </div>
-          <SignOutButton>
-            <Button variant="secondary">
-              Sign out <LogOut />
-            </Button>
-          </SignOutButton>
+          <div className="hidden md:block">
+            <SignOutButton>
+              <Button variant="secondary">
+                Sign out <LogOut />
+              </Button>
+            </SignOutButton>
+          </div>
         </div>
       </div>
     </nav>

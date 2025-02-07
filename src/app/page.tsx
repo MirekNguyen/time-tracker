@@ -1,6 +1,4 @@
 import { CardTimeLogger } from "@/components/CardTimeLogger";
-import { CurrentUser } from "@/components/navbar/CurrentUser";
-import { Navbar } from "@/components/navbar/Navbar";
 import { TimeEntriesList } from "@/components/TimeTable";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import React from "react";
@@ -8,9 +6,6 @@ import React from "react";
 export default function Home() {
   return (
     <>
-      <Navbar>
-        <CurrentUser />
-      </Navbar>
       <div className="flex flex-col md:flex-row">
         <CardTimeLogger />
         <Card className="w-full md:m-2">
