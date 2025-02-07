@@ -5,13 +5,14 @@ import Image from "next/image";
 import { ModeToggle } from "./ModeToggle";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
-import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "@/components/ui/sheet";
-import { MenuIcon } from "lucide-react";
 import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-} from "@/components/ui/dialog";
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetTitle,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { MenuIcon } from "lucide-react";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -28,7 +29,7 @@ export const Navbar = () => {
             Time Logger
           </Link>
           <div className="hidden md:flex gap-6">
-            <Button variant={pathname === "/" ? "secondary" : "ghost"}>
+            <Button variant={pathname === "/" ? "secondary" : "ghost"} disabled>
               <Link href="/">Dashboard</Link>
             </Button>
           </div>
@@ -48,28 +49,9 @@ export const Navbar = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="md:hidden">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <div className="grid gap-4 p-4">
-                      <Link
-                        href="/"
-                        className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                      >
-                        Dashboard
-                      </Link>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <div className="grid gap-4 p-4">
-                      <Link
-                        href="/"
-                        className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                      >
-                        Dashboard
-                      </Link>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <SheetClose asChild>
+                  <Link href="/">Dashboard</Link>
+                </SheetClose>
               </SheetContent>
             </Sheet>
           </div>
