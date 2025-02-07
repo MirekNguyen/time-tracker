@@ -32,10 +32,10 @@ export const Navbar = ({ children }: PropsWithChildren) => {
           </Link>
           <div className="hidden md:flex gap-6">
             <Button variant={pathname === "/" ? "secondary" : "ghost"}>
-              <Link href="/">Dashboard</Link>
+              <Link href="/" prefetch={false}>Dashboard</Link>
             </Button>
             <Button variant={pathname === "/overview" ? "secondary" : "ghost"}>
-              <Link href="/overview">Overview</Link>
+              <Link href="/overview" prefetch={false}>Overview</Link>
             </Button>
           </div>
         </div>
@@ -59,8 +59,8 @@ export const Navbar = ({ children }: PropsWithChildren) => {
                   <div className="flex flex-col justify-between h-full">
                     <div className="flex flex-col gap-4">
                       {children}
-                      <Link href="/">Dashboard</Link>
-                      <Link href="/overview">Overview</Link>
+                      <Link href="/" prefetch={false}>Dashboard</Link>
+                      <Link href="/overview" prefetch={false}>Overview</Link>
                     </div>
                     <SignOutButton>
                       <Button variant="secondary">
