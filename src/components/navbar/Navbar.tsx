@@ -12,9 +12,11 @@ import {
   SheetTitle,
   SheetClose,
 } from "@/components/ui/sheet";
-import { MenuIcon } from "lucide-react";
+import { LogOut, MenuIcon } from "lucide-react";
+import { PropsWithChildren } from "react";
+import { SignOutButton } from "@clerk/nextjs";
 
-export const Navbar = () => {
+export const Navbar = ({ children }: PropsWithChildren) => {
   const pathname = usePathname();
 
   return (
@@ -29,18 +31,19 @@ export const Navbar = () => {
             Time Logger
           </Link>
           <div className="hidden md:flex gap-6">
-            <Button variant={pathname === "/" ? "secondary" : "ghost"} disabled>
+            <Button variant={pathname === "/" ? "secondary" : "ghost"}>
               <Link href="/">Dashboard</Link>
             </Button>
           </div>
         </div>
 
-        <div className="flex flex-row gap-4">
-          <div className="items-center">
+        <div className="flex flex-row items-center gap-4">
+          <div className="hidden md:block">{children}</div>
+          <div className="flex flex-row items-center">
             <ModeToggle />
           </div>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center md:hidden">
             <Sheet>
               <SheetTitle></SheetTitle>
               <SheetTrigger asChild>
@@ -50,11 +53,19 @@ export const Navbar = () => {
               </SheetTrigger>
               <SheetContent side="left" className="md:hidden">
                 <SheetClose asChild>
-                  <Link href="/">Dashboard</Link>
+                  <div>
+                    {children}
+                    <Link href="/">Dashboard</Link>
+                  </div>
                 </SheetClose>
               </SheetContent>
             </Sheet>
           </div>
+          <SignOutButton>
+            <Button variant="secondary">
+              Sign out <LogOut />
+            </Button>
+          </SignOutButton>
         </div>
       </div>
     </nav>
