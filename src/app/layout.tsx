@@ -5,10 +5,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import {
   ClerkProvider,
-  SignInButton,
+  RedirectToSignIn,
   SignedIn,
   SignedOut,
-  UserButton,
 } from "@clerk/nextjs";
 
 const geistSans = Geist({
@@ -51,10 +50,9 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <SignedOut>
-              <SignInButton />
+              <RedirectToSignIn />
             </SignedOut>
             <SignedIn>
-              <UserButton />
               {children}
             </SignedIn>
           </ThemeProvider>

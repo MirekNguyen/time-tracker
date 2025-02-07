@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ModeToggle } from "./ModeToggle";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
+import { UserButton } from "@clerk/nextjs";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -25,7 +26,10 @@ export const Navbar = () => {
               </Button>
             </div>
           </div>
-          <ModeToggle />
+          <div>
+            <ModeToggle />
+            <UserButton />
+          </div>
         </div>
       </div>
     </nav>
