@@ -11,6 +11,7 @@ import {
   SheetContent,
   SheetTitle,
   SheetClose,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { LogOut, MenuIcon } from "lucide-react";
 import { PropsWithChildren } from "react";
@@ -49,6 +50,7 @@ export const Navbar = ({ children }: PropsWithChildren) => {
           <div className="flex items-center md:hidden">
             <Sheet>
               <SheetTitle></SheetTitle>
+              <SheetDescription></SheetDescription>
               <SheetTrigger asChild>
                 <Button variant="secondary" size="icon">
                   <MenuIcon className="h-6 w-6" />
