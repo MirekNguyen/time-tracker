@@ -11,6 +11,7 @@ import {
 } from "@clerk/nextjs";
 import { Navbar } from "@/components/navbar/Navbar";
 import { CurrentUser } from "@/components/navbar/CurrentUser";
+import { Footer } from "@/components/footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +44,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased overscroll-none`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased overscroll-none flex flex-col min-h-screen`}
         >
           <ThemeProvider
             attribute="class"
@@ -59,6 +60,7 @@ export default function RootLayout({
                 <CurrentUser />
               </Navbar>
               {children}
+              <Footer />
             </SignedIn>
           </ThemeProvider>
         </body>

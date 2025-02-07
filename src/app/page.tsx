@@ -6,9 +6,9 @@ import React from "react";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row my-2">
         <CardTimeLogger />
-        <Card className="w-full md:m-2">
+        <Card className="w-full my-2 md:m-2">
           <CardHeader>
             <h1>Time logged</h1>
           </CardHeader>
