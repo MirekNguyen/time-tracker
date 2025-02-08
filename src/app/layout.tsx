@@ -12,6 +12,7 @@ import {
 import { Navbar } from "@/components/navbar/Navbar";
 import { CurrentUser } from "@/components/navbar/CurrentUser";
 import { Footer } from "@/components/footer/Footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,6 +61,7 @@ export default function RootLayout({
                 <CurrentUser />
               </Navbar>
               {children}
+              <Toaster />
               <Footer />
             </SignedIn>
           </ThemeProvider>

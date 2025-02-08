@@ -11,10 +11,15 @@ import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { createTimeEntry } from "@/actions/actions";
+import { toast } from "@/hooks/use-toast";
 
 export const CardTimeLogger = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [hours, setHours] = useState<string>("0");
+  const createEntry = () => {
+    createTimeEntry(date, hours);
+    toast({description: 'Time entry created'});
+  }
   return (
     <Card className="md:w-80 md:m-2 w-full">
       <CardHeader>
@@ -49,7 +54,7 @@ export const CardTimeLogger = () => {
         </div>
       </CardContent>
       <CardFooter>
-        <Button onClick={() => createTimeEntry(date, hours)} className="w-full">
+        <Button onClick={createEntry} className="w-full">
           Save
         </Button>
       </CardFooter>
